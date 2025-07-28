@@ -22,9 +22,11 @@ body {
 }
 
 .font-h2 {
-    font-size: 20px;
+    font-size: 24px;
 }
-
+.font-p {
+    font-size: 19px;
+}
 
 
 /*---------------------- NAVIGATION ---------------------------------*/
@@ -100,24 +102,21 @@ body {
 }
 
 #photo {
-    height: 200px;
+    height: 250px;
     width: auto;
 }
-
 #card-presentation {
-    position: absolute;
-    max-width: 1000px;
-    bottom: 290px;
-    left: 50%;
-    transform: translateX(-50%);
+    display: flex;
+    position: relative;
+    max-width: 600px;
     width: 90%;
-    max-width: 900px;
     height: auto;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    margin: auto 0;
+    margin: 10px auto; /* First value controls top margin, auto centers horizontally */
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 #personal-info {
@@ -125,6 +124,8 @@ body {
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
+    justify-content: center;
+    align-items: start;
 }
 
 #info {
@@ -133,12 +134,15 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    gap: 10px;
 }
 
 #social-media {
+    margin-top: 10px;
     background-color: #19234e;
     text-align: center;
     padding: 15px;
+    width: 100%;
 }
 
 
@@ -206,6 +210,7 @@ body {
     }
 
     #card-presentation {
+        display:block;
         position: absolute;
         max-width: 1000px;
         bottom: 330px;
