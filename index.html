@@ -11,24 +11,29 @@
 <body>
     <!-- Navigation -->
     <div class="navigation">
-        <h1>Alina Dvornyk</h1>
-        <div id="nav-links">
-                <a href="">Expérience</a>
-                <a href="">Formation</a>
-                <a href="">Aptitudes</a>
-                <a href="">Contact</a>
-        </div>
+        <h1 class="color-blue">Alina Dvornyk</h1>
 
+        <!-- Hamburger button -->
+        <button class="menu-toggle" id="menu-toggle">&#9776;</button>
+
+        <div id="nav-links" class="color-blue">
+            <a href="" class="link">Expérience</a>
+            <a href="" class="link">Formation</a>
+            <a href="" class="link">Aptitudes</a>
+            <a href="" class="link">Contact</a>
+        </div>
     </div>
 
+    <div class="img-container">
+    <img src="/images/mountains.jpg" alt="" id="img-homepage">
     <!-- Personal info -->
-    <div>
-        <!-- here the content should be in column -->
-        <div>
-            <div>
-                <img src="" alt="">
+    <div id="card-presentation">
+        <div id="personal-info">
+            <div class="photo-container">  <!-- Changed from img-container -->
+                <img src="/images/photo.png" alt="" id="photo">
             </div>
-            <div>
+
+            <div id="info">
                 <h2>Rachel Semeur</h2>
                 <h3>AVOCATE ET CONSULTANTE</h3>
                 <p><strong>Téléphone :</strong><br>01 23 45 67 89</p>
@@ -37,16 +42,32 @@
                 <p><strong>Date de naissance :</strong><br>14 mars, 1984</p>
             </div>
         </div>
-        <!-- here is the block under for social medias -->
+        <div id="social-media">
+            <!-- Social icons go here -->
+             <a href="">
 
+             </a>
+             <a href="">
+
+             </a>
+        </div>
     </div>
+</div>
+
+
+
 
     <!-- Presentation -->
-     <div>
+    <div>
         <h2></h2>
         <p></p>
-     </div>
+    </div>
 
+    <script>
+        document.getElementById("menu-toggle").addEventListener("click", function () {
+            document.getElementById("nav-links").classList.toggle("show");
+        });
+    </script>
 
 </body>
 
