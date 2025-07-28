@@ -1,12 +1,11 @@
 * {
-    background-color: #f9f9f9;
     box-sizing: border-box;
-    /* This helps with layout issues */
     margin: 0;
     padding: 0;
 }
 
 body {
+    background-color: #f9f9f9;
     font-family: Georgia, 'Times New Roman', Times, serif;
     display: flex;
     flex-direction: column;
@@ -15,6 +14,9 @@ body {
 
 .color-blue {
     color: #2c3e8c;
+}
+.color-dark-blue {
+    color: #19234e;
 }
 
 .font-h1 {
@@ -28,7 +30,6 @@ body {
     font-size: 19px;
 }
 
-
 /*---------------------- NAVIGATION ---------------------------------*/
 
 .navigation {
@@ -38,6 +39,7 @@ body {
     align-items: center;
     padding: 10px 20px;
     position: relative;
+    height: 100px;
 }
 
 /* Mobile layout - default */
@@ -66,6 +68,7 @@ body {
     right: 0;
     border-radius: 10px;
     width: 180px;
+    background-color: #f9f9f9;
 }
 #nav-links.show :hover{
     background-color: #2c3e8c18;
@@ -80,21 +83,42 @@ body {
     font-size: 20px;
 }
 
-
-
 /*---------------------------------------- HOMEPAGE ---------------------------------------*/
 
-.img-container img {
+/* Main container for the image */
+.img-container {
+    position: relative;
+}
+
+/* Background image container with overlay */
+#bg-image {
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+
+/* Create the blue overlay using ::before pseudo-element */
+#bg-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    background-color: rgba(25, 35, 78, 0.5); /* Blue overlay with 50% opacity */
+    z-index: 1;
+    pointer-events: none; /* Allows clicks to pass through */
+}
+
+#img-homepage {
+    width: 100%;
+    height: auto;
     display: block;
 }
 
 /* New class for the photo container */
 .photo-container {
     flex: 0 0 auto;
-    /* Don't grow or shrink, use natural size */
 }
 
 .photo-container img {
@@ -105,7 +129,9 @@ body {
     height: 250px;
     width: auto;
 }
+
 #card-presentation {
+    
     display: flex;
     position: relative;
     max-width: 600px;
@@ -113,18 +139,19 @@ body {
     height: auto;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    margin: 10px auto; /* First value controls top margin, auto centers horizontally */
+    margin: 100px auto;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    z-index: 2; /* Make sure card appears above the overlay */
 }
 
 #personal-info {
+    background-color: #f0f0f0;
     display: flex;
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
-    justify-content: center;
     align-items: start;
 }
 
@@ -134,16 +161,55 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-content: center;
     gap: 10px;
+    margin: auto 0;
 }
 
 #social-media {
+    display: flex;
     margin-top: 10px;
     background-color: #19234e;
     text-align: center;
     padding: 15px;
     width: 100%;
+    justify-content: center;
+    gap: 20px;
 }
+
+.img-test {
+    height: 30px;
+    width: 30px;
+    background-color: none;
+}
+
+#presentation {
+    display: flex;
+    flex-direction: column;
+    margin-top: -5px;
+    width: 100%;
+    height: 300px;
+    background-color: #d6d6d6;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+}
+#presentation p {
+    max-width: 700px;
+}
+
+
+#test {
+    background-image: url("/images/mountains.jpg");
+    width: 100%;
+    height: 500px;
+    margin-top: 100px;
+    position: absolute;
+
+ 
+}
+
 
 
 
@@ -151,14 +217,13 @@ body {
 
 /* ---------------------------------------- DESKTOP VERSION -------------------------------------------- */
 
-/* Desktop layout */
-@media (min-width: 844px) {
+@media (min-width: 830px) {
     .menu-toggle {
         display: none;
     }
 
     .navigation {
-        display: fixed;
+        display: flex;
         top: 0;
         justify-content: space-between;
         align-items: center;
@@ -187,6 +252,7 @@ body {
 
     #personal-info {
         flex-direction: row;
+        background-color: #f0f0f0;
     }
 
     .img-container,
@@ -205,29 +271,40 @@ body {
     }
 
     #photo {
-        height: 300px;
+        height: 400px;
         width: auto;
     }
 
     #card-presentation {
-        display:block;
-        position: absolute;
+        display: block;
+        
         max-width: 1000px;
-        bottom: 330px;
+        top: 150px;
         left: 50%;
         transform: translateX(-50%);
         width: 90%;
-        max-width: 900px;
+        max-width: 800px;
+        max-height: 700px;
         height: auto;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         overflow: hidden;
         margin: auto 0;
         justify-content: center;
         align-items: center;
-        background: none;
+        z-index: 2; /* Make sure card appears above the overlay */
     }
+    
     #social-media {
         margin-top: 10px;
         height: 50px;
     }
+
+#presentation {
+    width: 100%;
+    height: 500px;
+
+}
+#presentation p {
+    max-width: 1000px;
+}
 }
